@@ -1,10 +1,8 @@
 //Api
 const proxy = "https://corsproxy.io/?"
-// const tablesApi = "https://api.football-data.org/v4/competitions/";
-// const fixturesApi= ""
-// const statsApi=""
 
 const apiKey= "b6f8f72738dd4e7789c10e7580e01337"
+
 /////////////////////////////////////////adding event listener////////////////////////////////
 
 const tablesButton= document.querySelector('#tableBtn')
@@ -71,63 +69,68 @@ async function displayTables(){
 }
 
 
-// /////////////////////////////////////////display fixtures///////////////////////////////////////////
-const fixturesBtn= document.querySelector('#fixturesBtn')
+// // /////////////////////////////////////////display fixtures///////////////////////////////////////////
+// const fixturesBtn= document.querySelector('#fixturesBtn')
 
-//////////////////////////////////////////adding event listener//////////////////////////////////
-fixturesBtn.addEventListener('click', fixturesDisplay)
+// //////////////////////////////////////////adding event listener//////////////////////////////////
+// fixturesBtn.addEventListener('click', fixturesDisplay)
 
-//////////////////////////////////////fixtures function////////////////////////////////////
+// //////////////////////////////////////fixtures function////////////////////////////////////
 
-async function fixturesDisplay(){
-const fixtureDisplay = document.querySelector('#displayFixtures')
-const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperCase('')
+// async function fixturesDisplay(){
+// const fixtureDisplay = document.querySelector('#displayFixtures')
+// const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperCase('')
 
-if(!fixtureDisplay) return;//checking if the id exixts
+// if(!fixtureDisplay) return;//checking if the id exixts
 
-try{
+// try{
 
-const response= await fetch(`${proxy}///// ${fixtureInput}`
-    { headers:{'X-Auth-Token': apiKey }}
-
-
-) 
-if(response.ok) {throw new Error("Failed to get Fixtures")}
-const data= await response.json()
-console.log(data)
-
-// fixturesDisplay.innerHTML=
+// const response= await fetch(`${proxy}https://api.football-data.org/v4//${fixtureInput}/`
+//     { headers:{'X-Auth-Token': apiKey }}
 
 
-}
+// ) 
+// if(response.ok) {throw new Error("Failed to get Fixtures")}
+// const data= await response.json()
+// console.log(data)
 
-catch(error){
-    console.log(error)
-}
+// // fixturesDisplay.innerHTML=
+
+
+// }
+
+// catch(error){
+//     console.log(error)
+// }
 
 
 
-}
+// }
 
 
 // //////////////////////////////////////////Display stats//////////////////////////////////
 
-// async function displayStats() {
+const statsBtn = document.querySelector('#statsBtn')
+statsBtn.addEventListener('click' displayStats)
 
-//     const statsDisplay= document.querySelector('#statsShow')
+async function displayStats() {
+const statsInput = document.querySelector('#stats').value.trim('').toUpperCase('')
+    const statsDisplay= document.querySelector('#diaplayStats')
 
-//     if(!statsDisplay) return
+    if(!statsDisplay) return
 
-//     try{
-//         const response= await fetch(statsApi)
-//         const data= await response.json()
-//         console.log(data)
+    try{
+        const response= await fetch(${proxy} statsApi)
+if(!response.ok){
+    throw new Error("Failed to get Stats")
+}
+        const data= await response.json()
+        console.log(data)
 
-//     }
-//     catch(error){
-//         console.log(error)
-//     }
+    }
+    catch(error){
+        console.log(error)
+    }
 
-//     statsDisplay.innerHTML=
-// }
+}
 
