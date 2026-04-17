@@ -6,11 +6,11 @@
     <title>Home</title>
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-purple-950">
 
 <!----Navigation bar------->
 
-    <nav class="flex justify-between border-4 p-6">
+    <nav class="bg-white flex justify-between border-4 p-6">
 
 <!----Website Icon---->
 
@@ -61,13 +61,13 @@
 <!----HOme Section---->
 <section class="flex  w-80%">
 
-    <div class="place-items-center rounded-xl border-double border-4 p-8 m-10 w-300 h-250">
-
+    <div class="bg-white place-items-center rounded-xl border-double border-4 p-8 m-10 w-300 h-250">
+<h2 class="text-3xl">Competition fixtures</h2>
         <!----Search---->
         <div>
             <form >
                 <input class="border-3 rounded-xl " type="search" id="fixtures" >
-                <button class="rounded-xl" id="fixturesBtn">Search</button>
+                <button class="rounded-xl" id="fixturesBtn" type="button">Search</button>
             </form>
         </div>
         <div id="displayFixtures">
@@ -79,14 +79,14 @@
 <!---column section-->
     <div class="flex flex-col gap-4">
 <!--Table--->
-    <div id="tableHome"   class= "place-items-center rounded-xl border-double border-4 p-10 mt-10 h-120 w-180">
-        <h2> Table</h2>
+    <div id="tableHome"   class= "bg-white place-items-center rounded-xl border-double border-4 p-10 mt-10 h-120 w-180">
+        <h2 class="text-3xl"> Competition Standings</h2>
         <!----Search---->
         <div>
             <form >
-                <input class="border-3 rounded-xl " type="search" id="tables" >
+                <input class="border-3 rounded-xl " type="search" placeholder="PL or Premier League"  id="tableInput">
             </form>
-                <button class="rounded-xl" id="tableBtn">Search</button>
+                <button class="rounded-xl" id="tableBtn" type="button">Search</button>
 
         </div>
         <div id="table">
@@ -103,14 +103,14 @@
     </div>
 <!---Stats-->
 
-    <div class="rounded-xl border-double border-4 place-items-center p-10 mb-5 w-180 h-120">
-        <h2>Stats</h2>
+    <div class="bg-white rounded-xl border-double border-4 place-items-center p-10 mb-5 w-180 h-120">
+        <h2 class="text-3xl">Competition Top Scorers</h2>
 
         <!----Search---->
         <div>
             <form >
                 <input class="border-3 rounded-xl " type="search" id="stats" >
-                <button class="rounded-xl" id="statsBtn">Search</button>
+                <button class="rounded-xl" id="statsBtn" type="button">Search</button>
             </form>
         </div>
         <div id="displayStats">
