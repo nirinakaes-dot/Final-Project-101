@@ -23,7 +23,7 @@ async function displayTables(){
 
     try{
 
-    const response= await fetch(`${proxy}https://api.football-data.org/v4/competitions/${searchInput}/standings`,
+    const response= await fetch(`${proxy}https://api.football-data.org/v4//${searchInput}/standings`,
         {
             headers: {'X-Auth-Token': apiKey}
         }
@@ -73,34 +73,42 @@ async function displayTables(){
 
 // /////////////////////////////////////////display fixtures///////////////////////////////////////////
 const fixturesBtn= document.querySelector('#fixturesBtn')
+
 //////////////////////////////////////////adding event listener//////////////////////////////////
-fixturesBtn.addEventListener('click', fixturesDisplay=>)
+fixturesBtn.addEventListener('click', fixturesDisplay)
 
 //////////////////////////////////////fixtures function////////////////////////////////////
-// async function fixturesDisplay(){
-// const fixturesDisplay = document.querySelector('#fixturesShow')
 
-// if(!fixturesDisplay) return;//checking if the id exixts
+async function fixturesDisplay(){
+const fixtureDisplay = document.querySelector('#displayFixtures')
+const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperCase('')
 
-// try{
+if(!fixtureDisplay) return;//checking if the id exixts
 
-// const response= await fetch(fixturesApi) //fetching
+try{
+
+const response= await fetch(`${proxy}///// ${fixtureInput}`
+    { headers:{'X-Auth-Token': apiKey }}
+
+
+) 
 if(response.ok) {throw new Error("Failed to get Fixtures")}
 const data= await response.json()
 console.log(data)
 
-// }
-
-// catch(error){
-//     console.log(error)
-// }
-
 // fixturesDisplay.innerHTML=
 
 
-// }
+}
 
-// fixturesDisplay() //calling teh fixtureDisplay function
+catch(error){
+    console.log(error)
+}
+
+
+
+}
+
 
 // //////////////////////////////////////////Display stats//////////////////////////////////
 
