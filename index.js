@@ -120,7 +120,10 @@ const statsInput = document.querySelector('#stats').value.trim('').toUpperCase('
     if(!statsDisplay) return
 
     try{
-        const response= await fetch(${proxy} statsApi)
+        const response= await fetch(`${proxy} ${statsInput}`,
+            {headers: {"X-Auth-Token":apiKey}
+            }
+        )
 if(!response.ok){
     throw new Error("Failed to get Stats")
 }
