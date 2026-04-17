@@ -72,7 +72,11 @@ async function displayTables(){
 
 
 // /////////////////////////////////////////display fixtures///////////////////////////////////////////
+const fixturesBtn= document.querySelector('#fixturesBtn')
+//////////////////////////////////////////adding event listener//////////////////////////////////
+fixturesBtn.addEventListener('click', fixturesDisplay=>)
 
+//////////////////////////////////////fixtures function////////////////////////////////////
 // async function fixturesDisplay(){
 // const fixturesDisplay = document.querySelector('#fixturesShow')
 
@@ -81,8 +85,9 @@ async function displayTables(){
 // try{
 
 // const response= await fetch(fixturesApi) //fetching
-// const data= await response.json()
-// console.log(data)
+if(response.ok) {throw new Error("Failed to get Fixtures")}
+const data= await response.json()
+console.log(data)
 
 // }
 
