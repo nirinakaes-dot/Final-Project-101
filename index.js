@@ -77,8 +77,8 @@ const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperC
 try{
 
  const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/http://api.football-data.org/v4/competitions/2003/matches?matchday=1 
-      -H "X-Unfold-Goals: true""`,
+      `https://cors-anywhere.herokuapp.com/http://api.football-data.org/v4/competitions/${fixtureInput}/matches
+      `,
       {
         headers: {
           'X-Auth-Token': "a79ef265e53a4924a21f8ef439129dac",
