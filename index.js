@@ -99,15 +99,18 @@ fixtureDisplay.innerHTML= `
            <th>Home</th>
            <th>Away</th>
            <th>Status</th>
+           <th>Full-Time</th>
         </tr>
      </thead>
      <tbody>
      ${matches.map(match=>`
         <tr>
-           <td>${new Date(match.utcDate)}</td>
+           <td>${new Date(match.utcDate).toLocaleDateString({day:'2-digit', month:'short'})}</td>
            <td>${match.homeTeam.name}</td>
            <td>${match.awayTeam.name}</td>
            <td>${match.status}</td>
+           <td>${match.score.fullTime.home}-${match.score.fullTime.away}
+        
         
         </tr>
         `).join('')}
