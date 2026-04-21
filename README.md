@@ -29,7 +29,7 @@ Football Data API
  Add loading spinners while fetching data
  Support multiple languages
 
-# License
+## License
 This project is open source and available under the MIT License.
 
 ### live site link - https://nirinakaes-dot.github.io/Final-Project-101/
