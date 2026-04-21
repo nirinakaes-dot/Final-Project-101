@@ -15,9 +15,9 @@ GameNi 90 is a football dashboard named after the iconic 90 minutes of a footbal
 
 
 ## Technology Used
-HTML5
+HTML5 <br>
 Tailwind CSS v4 (CDN)
-JavaScript (index.js)
+JavaScript (index.js) <br>
 Football Data API
 
 ## Future Improvements
