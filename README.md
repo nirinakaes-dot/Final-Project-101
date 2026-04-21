@@ -22,12 +22,12 @@ Football Data API
 
 ## Future Improvements
 
- Add a dedicated Scores page for live match scores
- Enable the global navigation search bar
- Add team-specific stats and player profiles
- Make the app fully mobile responsive
- Add loading spinners while fetching data
- Support multiple languages
+ Add a dedicated Scores page for live match scores<br>
+ Enable the global navigation search bar<br>
+ Add team-specific stats and player profiles<br>
+ Make the app fully mobile responsive<br>
+ Add loading spinners while fetching data<br>
+ Support multiple languages<br>
 
 ## License
 This project is open source and available under the MIT License.
