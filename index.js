@@ -1,9 +1,10 @@
 /////////////////////////////////////////adding event listener////////////////////////////////
 
 const tablesButton= document.querySelector('#tableBtn')
+const standingsForm = document.querySelector('#standingsForm')
 
-
-tablesButton.addEventListener('click', async()=>{
+standingsForm.addEventListener('submit', async(e)=>{
+    e.preventDefault()
 
 ////////////////////////////Display tableStandings function///////////////////////////////////////
     
@@ -29,9 +30,6 @@ tablesButton.addEventListener('click', async()=>{
 
          console.log(standings)
 
-       
-
-
         tablesDisplay.innerHTML =
 
     `<table>
@@ -55,21 +53,25 @@ tablesButton.addEventListener('click', async()=>{
 
      } 
 
-    catch(e){
-        console.log(e)
+    catch(error){
+        const errEl = document.querySelector('#standingsError')
+  errEl.textContent = error.message
+  errEl.className = 'msg error'
     }})
 
 
 
 // // // ///////////////////////////////////display fixtures///////////////////////////////////////////
 const fixturesBtn= document.querySelector('#fixturesBtn')
-
+const fixturesForm = document.querySelector('#fixturesForm')
 // //////////////////////////////////////////adding event listener//////////////////////////////////
-fixturesBtn.addEventListener('click', fixturesDisplay)
+fixturesForm.addEventListener('submit', fixturesDisplay)
 
 // //////////////////////////////////////fixtures function////////////////////////////////////
 
-async function fixturesDisplay(){
+async function fixturesDisplay(e){
+    e.preventDefault()
+    
 const fixtureDisplay = document.querySelector('#displayFixtures')
 const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperCase('')
 
@@ -77,8 +79,7 @@ const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperC
 try{
 
  const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/http://api.football-data.org/v4/competitions/${fixtureInput}/matches
-      `,
+      `http://api.football-data.org/v4/competitions/${fixtureInput}/matches`,
       {
         headers: {
           'X-Auth-Token': "a79ef265e53a4924a21f8ef439129dac",
@@ -105,7 +106,7 @@ fixtureDisplay.innerHTML= `
      <tbody>
      ${matches.map(match=>`
         <tr>
-           <td>${new Date(match.utcDate).toLocaleDateString({day:'2-digit', month:'short'})}</td>
+           <td>${new Date(match.utcDate).toLocaleDateString('en-GB' ,{day:'2-digit', month:'short'})}</td>
            <td>${match.homeTeam.name}</td>
            <td>${match.awayTeam.name}</td>
            <td>${match.status}</td>
@@ -124,7 +125,9 @@ fixtureDisplay.innerHTML= `
     }
 
 catch(error){
-    console.log(error)
+    const errEl = document.querySelector('#fixturesError')
+  errEl.textContent = error.message
+  errEl.className = 'msg error'
 }
 
 
@@ -133,11 +136,12 @@ catch(error){
 
 
 // //////////////////////////////////////////Display stats//////////////////////////////////
-
+const statsForm= document.querySelector('#statsForm')
 const statsBtn = document.querySelector('#statsBtn')
-statsBtn.addEventListener('click', displayStats)
+statsForm.addEventListener('submit', displayStats)
 
-async function displayStats() {
+async function displayStats(e) {
+    e.preventDefault()
 const statsInput = document.querySelector('#stats').value.trim('').toUpperCase('')
     const statsDisplay= document.querySelector('#displayStats')
 
@@ -186,13 +190,11 @@ const statsInput = document.querySelector('#stats').value.trim('').toUpperCase('
     `
 
     }
-    catch(error){
-        console.log(error)
+    catch(e){
+        const errEl = document.querySelector('#statsError')
+  errEl.textContent = e.message
+  errEl.className = 'msg error'
 
     }
 
-    
-
-
 }
-
