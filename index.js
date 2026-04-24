@@ -10,6 +10,10 @@ standingsForm.addEventListener('submit', async(e)=>{
     
     const searchInput = document.getElementById('tableInput').value.trim().toUpperCase()
     const tablesDisplay= document.querySelector('#table')
+    if (!searchInput) {
+  tablesDisplay.innerHTML = "Please enter a league code.";
+  return;
+}
 
     console.log("----", searchInput)
     try{
@@ -72,14 +76,20 @@ fixturesForm.addEventListener('submit', fixturesDisplay)
 async function fixturesDisplay(e){
     e.preventDefault()
     
+    
 const fixtureDisplay = document.querySelector('#displayFixtures')
-const fixtureInput = document.querySelector('#fixtures').value.trim('').toUpperCase('')
+const fixtureInput = document.querySelector('#fixtures').value.trim().toUpperCase()
+if (!fixtureInput) {
+  fixtureDisplay.innerHTML = "Please enter a league code.";
+  return;
+}
 
 
 try{
 
  const response = await fetch(
-      `http://api.football-data.org/v4/competitions/${fixtureInput}/matches`,
+      `https://cors-anywhere.herokuapp.com/https://api.football-data.org/v4/competitions/${fixtureInput}/matches`,
+
       {
         headers: {
           'X-Auth-Token': "a79ef265e53a4924a21f8ef439129dac",
@@ -144,6 +154,11 @@ async function displayStats(e) {
     e.preventDefault()
 const statsInput = document.querySelector('#stats').value.trim('').toUpperCase('')
     const statsDisplay= document.querySelector('#displayStats')
+
+    if (!statsInput) {
+  statsDisplay.innerHTML = "Please enter a league code.";
+  return;
+}
 
     try{
           const response = await fetch(
